@@ -1,7 +1,7 @@
 var markerSet = [];
 
 var myPos = {lat: 53.482, lng: -2.228}
-var myMarker = {pos: myPos, charity: "example", type: "Donation box", amount: "Unkown"}
+var myMarker = {pos: myPos, charity: "example", donationType: "Donation box", amount: "Unkown"}
 markerSet.push(myMarker);
 myPos = {lat: 53.462, lng: -2.228}
 var myMarker = {pos: myPos, type: "QR Code", amount: "2.00"}
@@ -26,8 +26,17 @@ function addMarker(markerOb) {
     title: 'Hello World!'
   });
 
-  //google.maps.event.addListener('click', createInfoWindow(marker, markerOb));
+  var contentString = "Charity name: "+ markerOb.charity+"\n Donation Type: "+markerOb.donationType+"\n Amount Donated: "+markerOb.amount;
 
+
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
 } 
 
 function genMarker() {
