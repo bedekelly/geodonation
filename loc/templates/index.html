@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0">
+    <script type="text/javascript">
+      
+      function noLocation() {
+        alert('Could not find location');
+      };
+
+      function foundLocation(position) {
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+        alert("LAT : "+lat +", LONG : "+long);
+      };
+
+      function getLocation() {
+        navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
+      };
+
+</script>
+</head>
+
+<body>
+<button onclick="getLocation()">Get Location</button>
+</body>
+</html>
