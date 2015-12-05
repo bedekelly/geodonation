@@ -1,9 +1,14 @@
+/**
+ * Welcome to Pebble.js!
+ *
+ * This is where you write your app.
+ */
+
 var UI = require('ui');
-var Vector2 = require('vector2');
 
 var main = new UI.Card({
   title: 'GeoDonate',
-  icon: 'images/menu_icon.png',
+  icon: 'images/hexagon_d.png',
   subtitle: 'Controls: ',
   body: '>> Up - Register a donation. \n >> Down - More info.'});
 
@@ -14,23 +19,23 @@ main.on('click', 'up', function(e) {
     sections: [{
       items: [{
         title: 'Charity 1',
-        icon: 'images/menu_icon.png',
+        icon: 'images/hexagon_c.png',
         subtitle: 'Charity 1 info'
       }, {
         title: 'Charity 2',
-        icon: 'images/menu_icon.png',
+        icon: 'images/hexagon_c.png',
         subtitle: 'Charity 2 info'
       }, {
         title: 'Charity 3',
-        icon: 'images/menu_icon.png',
+        icon: 'images/hexagon_c.png',
         subtitle: 'Charity 3 info'
       }, {
         title: 'Charity 4',
-        icon: 'images/menu_icon.png',
+        icon: 'images/hexagon_c.png',
         subtitle: 'Charity 4 info',
       }, {
         title: 'Charity 5',
-        icon: 'images/menu_icon.png',
+        icon: 'images/hexagon_c.png',
         subtitle: 'Charity 5 info'
       }]
     }]
@@ -48,4 +53,4 @@ main.on('click', 'down', function(e) {
   card.body('GeoDonate is an app that lets you register when you donate to a charity. This helps the charities target ad campaigns based on where they perform best.');
   card.show();
 });
-j
+
