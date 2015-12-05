@@ -21,12 +21,16 @@ def add_to_donations():
     lat = js.get("lat", None)
     long = js.get("long", None)
     charity = js.get("charity", None)
-    if None in (lat, long, charity):
+    donation_type = js.get("type", None)
+    amount = js.get("amount", None)
+    if None in (lat, long, charity, donation_type):
         return "Request malformed!", 400
     try:
         donations.append({"charity": charity,
                           "pos": {"lat": float(lat), 
                                   "lng": float(long)},
+                          "amount": amount or "Unknown",
+                          "type": donation_type,
                       })
     except Exception as e:
         print(e)
