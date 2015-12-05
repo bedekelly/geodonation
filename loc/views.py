@@ -22,12 +22,15 @@ def add_to_donations():
     long = js.get("long", None)
     charity = js.get("charity", None)
     if None in (lat, long, charity):
-        print(lat, long, charity)
         return "Request malformed!", 400
-    print(charity, lat, long)
-    donations.append({"charity": charity,
-                      "latitude": lat, 
-                      "longitude": long})
+    try:
+        donations.append({"charity": charity,
+                          "pos": {"lat": float(lat), 
+                                  "lng": float(long)},
+                      })
+    except Exception as e:
+        print(e)
+        return "lat and long should be floats", 400
     return "Donation added successfully!", 200
 
 
