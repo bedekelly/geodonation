@@ -1,1 +1,1 @@
-donations = []
+donations = {}
