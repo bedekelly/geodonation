@@ -32,6 +32,10 @@
         margin: auto;
 
       }
+
+      .input-group{
+        margin-bottom: 10px;
+      }
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -46,19 +50,39 @@
   <div class ="container">
         <div id = "middle">
         <div class="input-group input-group-lg">
-            <input type="text" id="qrtext" class="form-control" /> 
+            <input type="text" id="charityurl" value = "Charity URL" class="form-control" /> 
             <span class="input-group-btn">
-                <button class="btn btn-info" type="button" onclick="loadQR()">Generate</button>
             </span>
+            
         </div><!-- /input-group -->
+        <div class="input-group input-group-lg">
+          <input type="text" id="charityid" value = "Charity ID" class="form-control" /> 
+              <span class="input-group-btn">
+                  <button class="btn btn-info" type="button" onclick="getRedirectURL()">Generate</button>
+              </span>
+          </div>
 
         <div id="qrcode" class = "text-center"></div>
 
 
         <script type="text/javascript">
-          function loadQR() {
-          var qrcode = new QRCode(document.getElementById("qrcode"), {
-              text: document.getElementById("qrtext").value,
+          function getRedirectURL(){
+            var postURL = "charity.bk.wtf/redirect";
+            var origURL = document.getElementById("charityurl").value;
+            var charID = document.getElementById("charityid").value;
+            var data = {url:origURL, id:charID};
+
+            $.post(postURL,data,success(data));
+          }
+
+          function success(data){
+            loadQR(data.url);
+          }
+
+          function loadQR(redirectURL) {
+              document.getElementById("qrcode").innerHTML = "";
+              var qrcode = new QRCode(document.getElementById("qrcode"), {
+              text: redirectURL,
               width: 400,
               height: 400,
               colorDark : "#000000",
@@ -66,6 +90,9 @@
               correctLevel : QRCode.CorrectLevel.H
           });
         };
+
+        //post url to bede, get response and use it 
+
         </script>
         </div>
 </div>
