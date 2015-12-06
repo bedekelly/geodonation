@@ -21,7 +21,7 @@ function addMarker(markerOb, index, array) {
 
     var contentString = "Charity name: " + markerOb.charity + "<br> Donation Type: " + markerOb.type;
 
-    if (markerOb.amount) {
+    if (markerOb.amount !== "Unknown") {
 	contentString = contentString + "<br> Amount Donated: " + markerOb.amount;
     }
 
