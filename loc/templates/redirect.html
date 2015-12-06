@@ -50,40 +50,64 @@
 	  var lat;
 	  var lng;
 
+	  function noLocation() {
+	  alert('Could not find location');
+	  };
+
+	  function foundLocation(position) {
+	  lat = position.coords.latitude;
+	  lng = position.coords.longitude;
+	  };
+
+	  function getLocation() {
+	  navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
+	  };
+
+
+	  getLocation();
 	  function redirect() {
 	    console.log("{{url}}");
 	    window.location = "{{url}}";
+
+	  var data = {"charity": charityid,
+	    "lat": lat,
+	    "long": lng,
+	    "type": "QR Code or NFC Tag"};
+	  console.log(lat);
+	  var qs = data;
+	  console.log(qs);
+	  
+	  $.ajax(
+	  {
+	  method: "POST",
+	  url: "/donation",
+	  data: JSON.stringify(qs),
+	  headers: {"Content-Type": "application/json"},
+	  }
+	  );
+
 	  }
 	</script>
 
 	<script>
-		function setCharityImage(){
-			var charityid = "{{id}}";
-			console.log(charityid);
+	  
+
+
+
+	  var charityid = "{{id}}";
+	  function setCharityImage(){
+	  //console.log(charityid);
 			$.get("http://api.justgiving.com/5bf17704/v1/charity/" + charityid, function(data){
-				console.log(data);
+	  //console.log(data);
 				imageUrl = data["logoAbsoluteUrl"];
 				document.getElementById("img").innerHTML = "<img class = \"img-responsive\" \"center-block\" width = 500px src = \"" + imageUrl + "\"></img>";
 
-			}, "json");
-		};
+			}, "json")
+	  .success( function (resp) {
 
-	
-		$(document).ready(function () {
-				setCharityImage();
-		$.ajax(
-		{method: "POST",
-		 url: "/donation",
-		 data: {
-		"charity": charityid,
-		"type": "qrcode",
-		"lat": lat,
-		"long": lng
-                },
-		headers:
-		{"Content-Type": "application/text/json"}
-		});
-		});
+	  });
+		};
+	  setCharityImage();
 	</script>
 </body>
 </html>
