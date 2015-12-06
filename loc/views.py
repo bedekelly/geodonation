@@ -5,6 +5,9 @@ from . import app
 from .models import donations
 
 
+BASE_URL = app.BASE_URL
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -45,10 +48,20 @@ def get_donations():
 
 @app.route("/redirect", methods=["POST"])
 def get_redirect():
-    js = request.get_json()
-    return "http://google.com"
+    url = request.form.get("url", None)
+    id = request.form.get("id", None)
+    if None in (url, id):
+        return "", 400
+    app.count += 1
+    app.redirects[app.count] = render_template("redirect.html", id=id, url=url)
+    return BASE_URL + "/r/" + str(app.count)
 
 
 @app.route("/create", methods=["GET"])
 def create():
     return render_template("qrgen.html")
+
+
+@app.route("/r/<int:id_>", methods=["GET"])
+def follow_redirect(id_):
+    return app.redirects[id_]
