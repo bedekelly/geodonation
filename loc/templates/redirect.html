@@ -44,8 +44,12 @@
 
         <p class = "text-center"><br>Click if you are not automatically redirected in 5 seconds.</p>
 	</div>
-
+	
+	<script src="/static/js/location.js"></script>
 	<script>
+	  var lat;
+	  var lng;
+
 	  function redirect() {
 	    console.log("{{url}}");
 	    window.location = "{{url}}";
@@ -67,7 +71,16 @@
 	
 		$(document).ready(function () {
 				setCharityImage();
-		});
+		$.post(
+		"/donation",
+		{
+		"charity": charityid,
+		"type", "qrcode",
+		"lat": lat,
+		"long": lng,
+                },
+		function(resp) {}
+		);
 
 	</script>
 </body>

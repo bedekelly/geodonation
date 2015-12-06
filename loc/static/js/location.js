@@ -3,9 +3,8 @@ function noLocation() {
 };
 
 function foundLocation(position) {
-    var lat = position.coords.latitude;
-    var long = position.coords.longitude;
-    alert("LAT : "+lat +", LONG : "+long);
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
 };
 
 function getLocation() {
