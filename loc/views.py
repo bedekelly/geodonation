@@ -48,8 +48,9 @@ def get_donations():
     return Response(json.dumps(donations),  mimetype='application/json')
 
 
-@app.route("/donation/<string:id_>", methods=["GET"])
+@app.route("/donation/<int:id_>", methods=["GET"])
 def get_charity_donations(id_):
+    print(donations)
     try:
         ds = donations[id_]
     except KeyError:
