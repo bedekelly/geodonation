@@ -1,11 +1,28 @@
+/*
 var markerSet = [];
-
-var myPos = {lat: 53.482, lng: -2.228}
-var myMarker = {pos: myPos, charity: "example", donationType: "Donation box", amount: "Unkown"}
+var myMarker = {pos: myPos, charity: "example", donationType: "Donation Box", amount: "Unkown"}
 markerSet.push(myMarker);
 myPos = {lat: 53.462, lng: -2.228}
-var myMarker = {pos: myPos, type: "QR Code", amount: "2.00"}
+var myMarker = {pos: myPos, charity: "Just giving 4 u", donationType: "QR Code", amount: "2.00"}
 markerSet.push(myMarker);
+*/
+
+var myPos = {lat: 53.482, lng: -2.228}
+var markerSet = [];
+
+function getMarkerSet() {
+  $.get(
+      {
+        url: "/donation",
+        success: function(response) {
+          markerSet = response;
+          console.log(response);
+        }
+      }
+    );
+}
+getMarkerSet();
+
 var map;
 
 function initMap() {
@@ -14,9 +31,9 @@ function initMap() {
   zoom: 15
 });
 
-for (var i = 0; i < markerSet.length; i++) {
+/*for (var i = 0; i < markerSet.length; i++) {
     addMarker(markerSet[i]);
-  }
+  } */
 }     
 
 function addMarker(markerOb) {
@@ -26,7 +43,7 @@ function addMarker(markerOb) {
     title: 'Hello World!'
   });
 
-  var contentString = "Charity name: "+ markerOb.charity+"\n Donation Type: "+markerOb.donationType+"\n Amount Donated: "+markerOb.amount;
+  var contentString = "Charity name: "+ markerOb.charity+"<br> Donation Type: "+markerOb.donationType+"<br> Amount Donated: "+markerOb.amount;
 
 
   var infowindow = new google.maps.InfoWindow({
@@ -69,7 +86,7 @@ document.onreadystatechange = function(){
      if(document.readyState === 'complete' && !mapload){
         initMap();
         mapload = true;
-        genLoop = setInterval(genMarker, 400);
+        //genLoop = setInterval(genMarker, 2000);
 
      }
 }
