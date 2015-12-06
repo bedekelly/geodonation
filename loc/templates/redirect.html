@@ -1,13 +1,46 @@
 <!DOCTYPE HTML>
 
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0">
-    <script src="/static/js/location.js"></script>
-</head>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0">
+	    <script src="/static/js/location.js"></script>
+	    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+	    <style type="text/css">
+	    	.input-group{
+		        width: 500px;
+		        margin: auto;
+      		}
 
-<body>
-<button onclick="getLocation()">Get Location</button>
-</body>
+      		.btn{
+		        width: 500px;
+		        margin: auto;
+      		}
+      	</style>
+	</head>
+
+	<body>
+		<div id = "container">
+			<h1 class = "text-center">Redirecting you to the ____ donation page</h1>
+			<div id = "img"></div>
+			<div class="input-group input-group-lg text-center">
+	              <span class="input-group-btn">
+	                  <button class="btn btn-info" type="button" onclick="redirect()">Redirect</button>
+	             /span>
+	        </div>
+		</div>
+
+
+		<script>
+			function setCharityImage(charityid){
+				var charJson = $.get("api.justgiving.com/5bf17704/v1/charity/" + charityid);
+				var parseJson = JSON.parse(charJson);
+				var imageUrl =  parseJson.logoAbsoluteUrl;
+				document.getElementById("img").innerHTML = "<img width = 500px src = \"" + imageUrl + "\"</img>";
+			}
+
+		</script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	</body>
 </html>
