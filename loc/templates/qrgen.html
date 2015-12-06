@@ -67,7 +67,7 @@
 
         <script type="text/javascript">
           function getRedirectURL(){
-            var postURL = "charity.bk.wtf/redirect";
+            var postURL = "/redirect";
             var origURL = document.getElementById("charityurl").value;
             var charID = document.getElementById("charityid").value;
             var data = {url:origURL, id:charID};
@@ -80,6 +80,7 @@
           }
 
           function loadQR(redirectURL) {
+              console.log(redirectURL);
               document.getElementById("qrcode").innerHTML = "";
               var qrcode = new QRCode(document.getElementById("qrcode"), {
               text: redirectURL,
