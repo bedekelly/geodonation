@@ -5,6 +5,7 @@
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0">
 	    <script src="/static/js/location.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 	    <style type="text/css">
 	    	.input-group{
@@ -26,21 +27,27 @@
 			<div class="input-group input-group-lg text-center">
 	              <span class="input-group-btn">
 	                  <button class="btn btn-info" type="button" onclick="redirect()">Redirect</button>
-	             /span>
+	             </span>
 	        </div>
 		</div>
 
 
 		<script>
-			function setCharityImage(charityid){
-				var charJson = $.get("api.justgiving.com/5bf17704/v1/charity/" + charityid);
+
+			function setCharityImage(){
+				var charityid = "13441";
+
+				var charJson = $.get("http://api.justgiving.com/5bf17704/v1/charity/" + charityid);
 				var parseJson = JSON.parse(charJson);
 				var imageUrl =  parseJson.logoAbsoluteUrl;
 				document.getElementById("img").innerHTML = "<img width = 500px src = \"" + imageUrl + "\"</img>";
 			}
 
-		</script>
+			$(document).ready(function () {
+  				setCharityImage();
+			});
+			
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		</script>
 	</body>
 </html>
