@@ -65,6 +65,7 @@ def view_charity(id_):
 @app.route("/redirect", methods=["POST"])
 def get_redirect():
     url = request.form.get("url", None)
+    print(url)
     id = request.form.get("id", None)
     if None in (url, id):
         return "", 400

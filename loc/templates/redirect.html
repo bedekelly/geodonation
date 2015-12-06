@@ -46,8 +46,15 @@
 	</div>
 
 	<script>
+	  function redirect() {
+	    console.log("{{url}}");
+	    window.location = "{{url}}";
+	  }
+	</script>
+
+	<script>
 		function setCharityImage(){
-			var charityid = "88";
+			var charityid = "{{id}}";
 			console.log(charityid);
 			$.get("http://api.justgiving.com/5bf17704/v1/charity/" + charityid, function(data){
 				console.log(data);
