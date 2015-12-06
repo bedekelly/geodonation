@@ -50,6 +50,7 @@ def get_donations():
 
 @app.route("/donation/<string:id_>", methods=["GET"])
 def get_charity_donations(id_):
+    print(donations)
     try:
         ds = donations[id_]
     except KeyError:
@@ -57,7 +58,7 @@ def get_charity_donations(id_):
     return Response(json.dumps(ds), mimetype="application/json")
 
 
-@app.route("/view/<string:id_>", methods=["GET"])
+@app.route("/view/<int:id_>", methods=["GET"])
 def view_charity(id_):
     return render_template("view.html", charityId=id_)
 

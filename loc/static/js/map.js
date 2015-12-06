@@ -10,7 +10,7 @@ function addMarker(markerOb, index, array) {
 	title: charityId,
     });
 
-    var contentString = "Charity name: " + charityId + "<br> Donation Type: " + markerOb.type;
+    var contentString = "Charity ID: " + charityId + "<br> Donation Type: " + markerOb.type;
 
     if (markerOb.amount !== "Unknown") {
 	contentString = contentString + "<br> Amount Donated: " + markerOb.amount;
