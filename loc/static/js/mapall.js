@@ -1,4 +1,4 @@
-var myPos = {lat: 53.48, lng: -2.22}
+var myPos = {lat: 53.482, lng: -2.228}
 var markerSet = new Array();
 var map;
 
@@ -7,10 +7,10 @@ function addMarker(markerOb, index, array) {
     var marker = new google.maps.Marker({
 	position: markerOb.pos,
 	map: map,
-	title: charityId,
+	title: markerOb.charity,
     });
 
-    var contentString = "Charity name: " + charityId + "<br> Donation Type: " + markerOb.type;
+    var contentString = "Charity name: " + markerOb.charity + "<br> Donation Type: " + markerOb.type;
 
     if (markerOb.amount !== "Unknown") {
 	contentString = contentString + "<br> Amount Donated: " + markerOb.amount;
@@ -30,7 +30,7 @@ function addMarker(markerOb, index, array) {
 function getMarkerSet() {
     $.get(
 	{
-	    url: "/donation/" + charityId,
+	    url: "/donation",
 	    success: function(response) {
 		map = new google.maps.Map(document.getElementById('map'), {
 		    center: myPos,
@@ -52,7 +52,7 @@ function initMap() {
 
 
 function createInfoWindow(marker, markerOb) {
-    var contentString = "Charity name: "+ charityId +"\n Donation Type: "+markerOb.type+"\n Amount Donated: "+markerOb.amount;
+    var contentString = "Charity name: "+ markerOb.charity+"\n Donation Type: "+markerOb.type+"\n Amount Donated: "+markerOb.amount;
     
     var infowindow = new google.maps.InfoWindow({
         content: contentString
