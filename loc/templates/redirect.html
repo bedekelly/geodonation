@@ -71,17 +71,19 @@
 	
 		$(document).ready(function () {
 				setCharityImage();
-		$.post(
-		"/donation",
-		{
+		$.ajax(
+		{method: "POST",
+		 url: "/donation",
+		 data: {
 		"charity": charityid,
-		"type", "qrcode",
+		"type": "qrcode",
 		"lat": lat,
-		"long": lng,
+		"long": lng
                 },
-		function(resp) {}
-		);
-
+		headers:
+		{"Content-Type": "application/text/json"}
+		});
+		});
 	</script>
 </body>
 </html>
