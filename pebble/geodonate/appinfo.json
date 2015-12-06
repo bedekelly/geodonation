@@ -1,0 +1,63 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        "location",
+        "configurable"
+    ],
+    "companyName": "bedekelly97@gmail.com",
+    "longName": "GeoDonate",
+    "projectType": "pebblejs",
+    "resources": {
+        "media": [
+            {
+                "file": "images/menu_icon.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "type": "png"
+            },
+            {
+                "file": "images/logo_splash.png",
+                "name": "IMAGE_LOGO_SPLASH",
+                "type": "png"
+            },
+            {
+                "file": "images/tile_splash.png",
+                "name": "IMAGE_TILE_SPLASH",
+                "type": "png"
+            },
+            {
+                "file": "fonts/UbuntuMono-Regular.ttf",
+                "name": "MONO_FONT_14",
+                "type": "font"
+            },
+            {
+                "file": "images/dHexagon.png",
+                "name": "IMAGES_DHEXAGON_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/cHexagon.png",
+                "name": "IMAGES_CHEXAGON_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/blankHexagon.png",
+                "name": "IMAGES_BLANKHEXAGON_PNG",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "GeoDonate",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
+    "uuid": "5e9cf821-2974-4fa8-8abd-4a725e72237d",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "hiddenApp": false,
+        "watchface": false
+    }
+}
