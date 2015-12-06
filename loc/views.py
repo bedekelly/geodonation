@@ -41,3 +41,9 @@ def add_to_donations():
 @app.route("/donation", methods=["GET"])
 def get_donations():
     return Response(json.dumps(donations),  mimetype='application/json')
+
+
+@app.route("/redirect", methods=["POST"])
+def get_redirect():
+    js = request.get_json()
+    return "http://google.com"
