@@ -72,13 +72,12 @@
             var charID = document.getElementById("charityid").value;
             var data = {url:origURL, id:charID};
 
-            $.post(postURL,data,success(data));
+            $.post(postURL, data, function(resp) {
+	  console.log("Response from API:");
+	  console.log(resp);
+	  loadQR(resp);
+	  });
           }
-
-          function success(data){
-            loadQR(data.url);
-          }
-
           function loadQR(redirectURL) {
               console.log(redirectURL);
               document.getElementById("qrcode").innerHTML = "";

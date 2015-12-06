@@ -47,3 +47,8 @@ def get_donations():
 def get_redirect():
     js = request.get_json()
     return "http://google.com"
+
+
+@app.route("/create", methods=["GET"])
+def create():
+    return render_template("qrgen.html")
