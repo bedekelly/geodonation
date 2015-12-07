@@ -24,19 +24,16 @@ The first was a hardware project. Using a small, inexpensive prototyping electro
 
 The second was a Pebble smartwatch app. Instead of registering the donation automatically, this required the user to select the charity they'd just donated to. We envisioned this for more frequent donators, who might be open to helping charities by providing anonymous location statistics.
 
-*Shown here: the charity selection screen*
+*Shown here: the introductory splash screen and the charity selection screen*
 
-![Pebble app](http://placehold.it/350x150)
-
-*Shown here: the introductory splash screen*
-
-![Pebble app](http://placehold.it/350x150)
+![Pebble app](http://i.imgur.com/jE4vZJd.png)
+![Pebble app](http://i.imgur.com/w9owpCJ.png)
 
 Finally, we made a URL redirect service, coupled with a friendly QR code generator.
 
 ![QR code generator](http://i.imgur.com/xRFZA17.png)
 
-We felt this would be most used by people who donate on the go - whether it's scanned from an advert or from a leaflet handed to them in the street. From a friendly 'redirect' page, which captures the donator's location, they are redirected to an arbitrary URL specified by the charity. As well as being used for donation pages, this is useful for more general analysis of where most page-views are coming from.
+We felt this would be most used by people who donate on the go - whether it's scanned from an advert or from a leaflet handed to them in the street. From a friendly 'redirect' page, which captures the donator's location, they are redirected to an arbitrary URL specified by the charity. As well as being used for donation pages, this is useful for more general analysis of where most QR-scans (or clicks, NFC-taps etc.) are coming from.
 
 *Shown: Chrome asking the user to share location information, and the redirect page itself*
 
