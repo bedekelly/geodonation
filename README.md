@@ -1,6 +1,6 @@
 # GeoDonation
 
-GeoDonation was a hack built at Manchester's GreatUniHack 2015. It aimed to solve the the problem that charities face of location-based analysis -- where most of their donations come from, and how they're distributed.
+GeoDonation was a hack built at Manchester's GreatUniHack 2015, a 24h hackathon. It aimed to solve the the problem that charities face of location-based analysis -- where most of their donations come from, and how they're distributed.
 
 We wanted to provide a friendly, usable interface for charities to see exactly where all their donations came from. In order to make this a reality, we put careful thought into our system architecture, especially with respect to making a scalable and extensible system.
 
